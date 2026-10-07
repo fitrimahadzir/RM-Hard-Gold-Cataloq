@@ -1,0 +1,6 @@
+{
+  "name": "GLOW - Luxury Jewelry | Rings",
+  "description": "Exquisite luxury jewelry catalog for GLOW, showcasing handcrafted designer rings in white gold, yellow gold, and diamonds.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
