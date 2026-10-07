@@ -20,11 +20,26 @@
 
 /* Rounded rectangle jewelry card image container and hover outline */
 .ring-card-shape {
-  border-radius: 24px;
+  border-radius: 12px;
 }
 
 .ring-outline-shape {
-  border-radius: 24px;
+  border-radius: 12px;
+}
+
+@media (min-width: 1024px) {
+  .ring-card-shape {
+    border-radius: 24px;
+  }
+
+  .ring-outline-shape {
+    border-radius: 24px;
+  }
+}
+
+/* Hamburger hover state (lines turn brighter) */
+.group:hover .hamburger-react span {
+  background: #FFF5F5 !important;
 }
 
 /* Custom scrollbars */

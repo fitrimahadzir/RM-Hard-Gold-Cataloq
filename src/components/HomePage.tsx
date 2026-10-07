@@ -52,7 +52,7 @@ export const HomePage: React.FC<HomePageProps> = ({
           <span className="text-[8px] sm:text-[10px] md:text-[11px] uppercase tracking-[0.3em] text-[#F2D6D6]/80">
             Exclusive 916 &amp; 22K Gold Catalog
           </span>
-          <h1 className="font-serif text-[24px] sm:text-3xl md:text-5xl lg:text-[56px] leading-tight font-bold text-[#F2D6D6]">
+          <h1 className="font-serif text-[24px] sm:text-3xl md:text-5xl lg:text-[56px] leading-tight font-thin text-[#F2D6D6]">
             Welcome to Our
             <br />
             Exclusive Cataloq
@@ -111,7 +111,7 @@ export const HomePage: React.FC<HomePageProps> = ({
           </button>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 pt-8">
+        <div className="grid grid-cols-3 lg:grid-cols-6 gap-4 md:gap-5 lg:gap-6 pt-8">
           {featured.map((product) => (
             <ProductCard
               key={product.id}
