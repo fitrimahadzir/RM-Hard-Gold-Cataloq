@@ -48,34 +48,34 @@ export const HomePage: React.FC<HomePageProps> = ({
           className="w-full h-[280px] md:h-[360px] object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#2A0A14]/95 via-[#2A0A14]/70 to-transparent" />
-        <div className="absolute inset-0 flex flex-col justify-center gap-4 px-6 md:px-12 max-w-2xl">
-          <span className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] text-[#F2D6D6]/80">
+        <div className="absolute inset-0 flex flex-col justify-center gap-2.5 sm:gap-4 px-6 md:px-12 max-w-2xl">
+          <span className="text-[8px] sm:text-[10px] md:text-[11px] uppercase tracking-[0.3em] text-[#F2D6D6]/80">
             Exclusive 916 &amp; 22K Gold Catalog
           </span>
-          <h1 className="font-serif text-3xl md:text-5xl lg:text-[56px] leading-tight font-bold text-[#F2D6D6]">
+          <h1 className="font-serif text-[24px] sm:text-3xl md:text-5xl lg:text-[56px] leading-tight font-bold text-[#F2D6D6]">
             Welcome to Our
             <br />
             Exclusive Cataloq
           </h1>
-          <p className="text-xs md:text-sm text-[#E8CFCF]/80 leading-relaxed max-w-md">
+          <p className="text-[9px] sm:text-[11px] md:text-sm text-[#E8CFCF]/80 leading-relaxed max-w-md">
             {totalPieces} pieces across 5 categories — rings, pendants, bracelets, necklaces and
             earrings. Full specifications, weights and sizes with no fixed pricing.
           </p>
-          <div className="flex flex-wrap items-center gap-3 pt-1">
+          <div className="flex flex-wrap items-center gap-2 sm:gap-3 pt-1">
             <button
               onClick={() => onSelectCategory(categories[0].id)}
-              className="group flex items-center gap-2 bg-[#F2D6D6] hover:bg-white text-[#2A0A14] text-[11px] uppercase tracking-[0.2em] font-semibold px-5 py-2.5 rounded-[6px] transition-colors cursor-pointer"
+              className="group flex items-center gap-2 bg-[#F2D6D6] hover:bg-white text-[#2A0A14] text-[10px] sm:text-[11px] uppercase tracking-[0.2em] font-semibold px-3.5 py-2 sm:px-5 sm:py-2.5 rounded-[6px] transition-colors cursor-pointer"
             >
               Explore Catalog
-              <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+              <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 transition-transform group-hover:translate-x-1" />
             </button>
             <a
               href={waLink('Hello RM Atelier, I would like to inquire about your jewelry collection.')}
               target="_blank"
               rel="noreferrer"
-              className="flex items-center gap-2 border border-[#F2D6D6]/40 hover:border-[#F2D6D6]/80 text-[#F2D6D6] text-[11px] uppercase tracking-[0.2em] px-5 py-2.5 rounded-[6px] transition-colors cursor-pointer"
+              className="flex items-center gap-2 border border-[#F2D6D6]/40 hover:border-[#F2D6D6]/80 text-[#F2D6D6] text-[10px] sm:text-[11px] uppercase tracking-[0.2em] px-3.5 py-2 sm:px-5 sm:py-2.5 rounded-[6px] transition-colors cursor-pointer"
             >
-              <MessageCircle className="w-3.5 h-3.5" />
+              <MessageCircle className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
               Inquire
             </a>
           </div>
