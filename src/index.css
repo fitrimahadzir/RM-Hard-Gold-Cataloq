@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-serif: "Cormorant Garamond", Georgia, serif;
+    --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #2A0A14;
+    color: #E8CFCF;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6, .font-serif {
+    font-family: var(--font-serif);
+  }
+}
+
+/* Rounded rectangle jewelry card image container and hover outline */
+.ring-card-shape {
+  border-radius: 24px;
+}
+
+.ring-outline-shape {
+  border-radius: 24px;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #2A0A14;
+}
+::-webkit-scrollbar-thumb {
+  background: #7A4A55;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #965B68;
+}
