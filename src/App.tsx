@@ -9,6 +9,7 @@ import { QuickViewModal } from './components/QuickViewModal';
 import { SearchModal } from './components/SearchModal';
 import { LoginModal } from './components/LoginModal';
 import { CATEGORIES, PRODUCTS } from './data/products';
+import { CATEGORY_ICONS } from './icons';
 import { Product, FilterState, SortOption, CategoryId } from './types';
 
 export default function App() {
@@ -77,8 +78,13 @@ export default function App() {
   const featuredProducts = useMemo(
     () => [
       PRODUCTS.find((p) => p.id === 'ring-drop')!,
+      PRODUCTS.find((p) => p.id === 'ring-traditions')!,
+      PRODUCTS.find((p) => p.id === 'ring-light')!,
+      PRODUCTS.find((p) => p.id === 'ring-big-heart')!,
+      PRODUCTS.find((p) => p.id === 'ring-power')!,
+      PRODUCTS.find((p) => p.id === 'ring-glow')!,
+      PRODUCTS.find((p) => p.id === 'pendant-soleil')!,
       PRODUCTS.find((p) => p.id === 'necklace-sovereign')!,
-      PRODUCTS.find((p) => p.id === 'bracelet-lumiere')!,
       PRODUCTS.find((p) => p.id === 'earring-starlight')!,
     ],
     []
@@ -184,9 +190,16 @@ export default function App() {
           <>
             {/* DYNAMIC PAGE TITLE */}
             <div className="w-full text-center mt-8 mb-6 md:mt-10 md:mb-8">
-              <h1 className="font-serif text-5xl sm:text-6xl md:text-[64px] font-light text-[#F2D6D6] tracking-normal select-none">
-                {currentCategoryInfo.label}
-              </h1>
+              <div className="flex items-center justify-center gap-3 md:gap-4">
+                <span
+                  aria-hidden="true"
+                  className="inline-block h-[26px] sm:h-[32px] md:h-[40px] [&>svg]:h-full [&>svg]:fill-current text-[#F2D6D6]/80 select-none"
+                  dangerouslySetInnerHTML={{ __html: CATEGORY_ICONS[activeCategory] }}
+                />
+                <h1 className="font-serif text-5xl sm:text-6xl md:text-[64px] font-thin text-[#F2D6D6] tracking-normal select-none">
+                  {currentCategoryInfo.label}
+                </h1>
+              </div>
               <p className="text-[11px] uppercase tracking-[0.25em] text-[#E8CFCF]/60 mt-1">
                 Exclusive Catalog · Pricing Based on Current Market Gold Rates
               </p>
@@ -225,7 +238,7 @@ export default function App() {
                   </button>
                 </div>
               ) : (
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 lg:gap-12">
+                <div className="grid grid-cols-3 lg:grid-cols-6 gap-4 md:gap-5 lg:gap-6">
                   {filteredProducts.map((product) => (
                     <ProductCard
                       key={product.id}

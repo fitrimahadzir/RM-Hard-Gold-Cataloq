@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { X, Search, ChevronDown, MessageCircle } from 'lucide-react';
+import Hamburger from 'hamburger-react';
 import { CategoryId } from '../types';
 import { CATEGORIES } from '../data/products';
 import { waLink } from '../config';
@@ -26,17 +27,15 @@ export const Header: React.FC<HeaderProps> = ({
       <div className="grid grid-cols-2 md:grid-cols-3 items-center w-full">
         {/* Left Zone: Hamburger + Links */}
         <div className="flex items-center gap-6">
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="flex items-center gap-2 text-xs tracking-[0.2em] font-medium uppercase text-[#E8CFCF] hover:text-[#FFF5F5] transition-colors group cursor-pointer focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#F2D6D6]"
-            aria-label="Toggle navigation menu"
-            aria-expanded={mobileMenuOpen}
-          >
-            <div className="flex flex-col gap-1 w-4 transition-transform group-hover:scale-105">
-              <span className="h-[1.5px] w-full bg-[#E8CFCF] group-hover:bg-[#FFF5F5] transition-colors"></span>
-              <span className="h-[1.5px] w-3/4 bg-[#E8CFCF] group-hover:bg-[#FFF5F5] transition-colors"></span>
-            </div>
-          </button>
+          <span className="group lg:hidden">
+            <Hamburger
+              toggled={mobileMenuOpen}
+              toggle={setMobileMenuOpen}
+              size={17}
+              color="#E8CFCF"
+              aria-label="Toggle navigation menu"
+            />
+          </span>
 
           <nav className="hidden lg:flex items-center gap-6 text-[11px] tracking-[0.2em] font-medium uppercase text-[#E8CFCF]/90">
             <button

@@ -79,7 +79,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
               alt={product.fullName}
               referrerPolicy="no-referrer"
               onError={() => setImageError(true)}
-              className="relative z-0 w-full h-full object-contain p-6 md:p-7 drop-shadow-[0_14px_22px_rgba(0,0,0,0.45)] transition-transform duration-500 ease-out group-hover:scale-105"
+              className="relative z-0 w-full h-full object-contain p-1.5 md:p-4 drop-shadow-[0_14px_22px_rgba(0,0,0,0.45)] transition-transform duration-500 ease-out group-hover:scale-105"
             />
           ) : (
             /* Styled CSS/SVG Fallback Container */
