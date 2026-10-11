@@ -24,11 +24,11 @@ export const CATEGORIES: CategoryInfo[] = [
 
 // Fixed size options per category (size varies by category, not by Airtable record)
 export const CATEGORY_SIZES: Record<CategoryId, string[]> = {
-  'pendant-bead': ['Mini (10 mm)', 'Petite (12 mm)', 'Standard (14 mm)', 'Standard (16 mm)', 'Grand (20 mm)', 'Grand (22 mm)'],
-  ring: ['9', '10', '11', '12', '13', '14', '15', '16', '17', '18'],
-  bracelet: ['15.5 cm (XS)', '16.0 cm (S)', '16.5 cm (S)', '17.0 cm (S/M)', '17.5 cm (M)', '18.0 cm (M)', '18.5 cm (L)', '19.0 cm (L)', '19.5 cm (L)'],
-  necklace: ['40 cm (Choker)', '42 cm (Classic)', '45 cm (Princess)', '50 cm (Matinee)', '55 cm (Opera)'],
-  earring: ['Stud 0.50 ct (5.2 mm)', 'Stud 1.00 ct (6.5 mm)', 'Huggie 12 mm', 'Hoop 16 mm', 'Drop 20 mm', 'Drop 25 mm (Classic)', 'Drop 30 mm', 'Drop 35 mm (Grande)'],
+  'pendant-bead': ['Mini (10 mm)', 'Petite (12 mm)', 'Standard (14 mm)', 'Standard (16 mm)', 'Grand (20 mm)', 'Grand (22 mm)', 'Custom Size'],
+  ring: ['9', '10', '11', '12', '13', '14', '15', '16', '17', '18', 'Custom Size'],
+  bracelet: ['15.5 cm (XS)', '16.0 cm (S)', '16.5 cm (S)', '17.0 cm (S/M)', '17.5 cm (M)', '18.0 cm (M)', '18.5 cm (L)', '19.0 cm (L)', '19.5 cm (L)', 'Custom Size'],
+  necklace: ['40 cm (Choker)', '42 cm (Classic)', '45 cm (Princess)', '50 cm (Matinee)', '55 cm (Opera)', 'Custom Size'],
+  earring: ['Stud 0.50 ct (5.2 mm)', 'Stud 1.00 ct (6.5 mm)', 'Huggie 12 mm', 'Hoop 16 mm', 'Drop 20 mm', 'Drop 25 mm (Classic)', 'Drop 30 mm', 'Drop 35 mm (Grande)', 'Custom Size'],
 };
 
 export const PRODUCTS: Product[] = [
