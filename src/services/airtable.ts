@@ -153,9 +153,11 @@ export async function fetchCatalogProducts(): Promise<Product[]> {
   if (!response.ok) {
     throw new Error(`Catalog request failed (${response.status})`);
   }
-  const data = (await response.json()) as { products?: Product[]; error?: string };
-  if (!Array.isArray(data.products)) {
+  const data = (await response.json()) as { records?: AirtableRecord[]; error?: string };
+  if (!Array.isArray(data.records)) {
     throw new Error(data.error || 'Malformed catalog response');
   }
-  return data.products;
+  return data.records
+    .map(mapRecord)
+    .filter((product): product is Product => product !== null && product.availability !== false);
 }

@@ -1,6 +1,3 @@
-import { AirtableRecord, mapRecord } from '../src/services/airtable';
-import { Product } from '../src/types';
-
 interface ApiRequest {
   method?: string;
 }
@@ -9,6 +6,11 @@ interface ApiResponse {
   status(code: number): ApiResponse;
   setHeader(name: string, value: string): void;
   json(body: unknown): void;
+}
+
+interface RawRecord {
+  id: string;
+  fields: Record<string, unknown>;
 }
 
 const TOKEN_KEYS = [
@@ -38,13 +40,13 @@ export default async function handler(_req: ApiRequest, res: ApiResponse) {
   if (!token || !baseId || !table) {
     res.status(500).json({
       error: 'Airtable is not configured. Set AIRTABLE_TOKEN, AIRTABLE_BASE_ID and AIRTABLE_TABLE in Vercel.',
-      products: [],
+      records: [],
     });
     return;
   }
 
   try {
-    const records: AirtableRecord[] = [];
+    const records: RawRecord[] = [];
     let offset: string | undefined;
 
     do {
@@ -65,27 +67,23 @@ export default async function handler(_req: ApiRequest, res: ApiResponse) {
         res.status(response.status).json({
           error: `Airtable request failed (${response.status}).`,
           detail,
-          products: [],
+          records: [],
         });
         return;
       }
 
-      const data = (await response.json()) as { records?: AirtableRecord[]; offset?: string };
+      const data = (await response.json()) as { records?: RawRecord[]; offset?: string };
       if (Array.isArray(data.records)) records.push(...data.records);
       offset = data.offset;
     } while (offset);
 
-    const products: Product[] = records
-      .map(mapRecord)
-      .filter((product): product is Product => product !== null && product.availability !== false);
-
     res.setHeader('Cache-Control', 's-maxage=60, stale-while-revalidate=300');
-    res.status(200).json({ products, count: products.length });
+    res.status(200).json({ records, count: records.length });
   } catch (error) {
     res.status(500).json({
       error: 'Unexpected error while loading the catalog.',
       detail: error instanceof Error ? error.message : String(error),
-      products: [],
+      records: [],
     });
   }
 }
