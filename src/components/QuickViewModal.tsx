@@ -111,7 +111,7 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
             </h2>
 
             {/* Pricing based on current market gold rate (Live spot gold rate) */}
-            <div className="mt-1 text-[11px] text-[#F2D6D6]/60 tracking-wider uppercase">
+            <div className="mt-1 text-[11px] text-[#F2D6D6]/60 tracking-wider">
               Priced by current market gold rate and craftsmanship
             </div>
 
