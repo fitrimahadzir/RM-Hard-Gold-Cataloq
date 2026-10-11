@@ -85,7 +85,7 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
             {/* Metal & Wishlist tag */}
             <div className="flex items-center justify-between">
               <span className="text-xs uppercase tracking-[0.2em] text-[#E8CFCF]/70 font-medium">
-                {metalKarat || 'Hard Gold Catalog (916)'}
+                {metalKarat || 'Hard Gold Catalog'}
               </span>
               <button
                 onClick={() => setIsWishlisted(!isWishlisted)}
@@ -102,6 +102,13 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
             <h2 className="font-serif text-xl md:text-3xl text-[#F2D6D6] tracking-wide mt-1.5 font-normal">
               {product.name}
             </h2>
+
+            {/* Purity */}
+            {!!product.purity && (
+              <div className="mt-1.5 text-[11px] uppercase tracking-[0.2em] text-[#E8CFCF]/70">
+                Purity: {product.purity}
+              </div>
+            )}
 
             {/* Pricing based on current market gold rate (Live spot gold rate) */}
             <div className="mt-1 text-[11px] text-[#F2D6D6]/60 tracking-wider">

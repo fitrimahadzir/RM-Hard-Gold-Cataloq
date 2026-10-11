@@ -143,6 +143,7 @@ export function mapRecord(record: AirtableRecord): Product | null {
     sizes: parseSizes(getField(fields, 'size')),
     image: pickImage(getField(fields, 'image')),
     karat: toText(getField(fields, 'karat')),
+    purity: toText(getField(fields, 'purity')),
     featured: parseBoolean(getField(fields, 'featured')),
     availability: parseAvailability(getField(fields, 'availability')),
   };

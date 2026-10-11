@@ -25,6 +25,7 @@ export interface Product {
   sizes: string[]; // Size options per category
   image: string;
   karat: string;
+  purity?: string; // Gold purity (Airtable "purity" column), e.g. "916 (22K)"
   featured?: boolean; // Highlight on the homepage (Airtable "featured" column)
   availability?: boolean; // Available for inquiry (Airtable "availability" column)
 }
