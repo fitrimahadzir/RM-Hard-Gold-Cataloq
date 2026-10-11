@@ -140,7 +140,7 @@ href={waLink('Hello, I would like to inquire about your jewelry collection.')}
           <span>Search</span>
         </button>
         <a
-          href={waLink('Hello RM Atelier, I would like to inquire about your jewelry collection.')}
+          href={waLink('Hello, I would like to inquire about your jewelry collection.')}
           target="_blank"
           rel="noreferrer"
           className="flex items-center gap-1 text-[#F2D6D6] py-1 font-semibold"
