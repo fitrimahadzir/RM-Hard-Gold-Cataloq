@@ -17,7 +17,7 @@ export interface AirtableRecord {
 }
 
 const CATEGORY_SINGULARS: Record<CategoryId, string> = {
-  'pendant-bead': 'Pendant',
+  'pendant-bead': 'Pendant/Bead',
   ring: 'Ring',
   bracelet: 'Bracelet',
   necklace: 'Necklace',
