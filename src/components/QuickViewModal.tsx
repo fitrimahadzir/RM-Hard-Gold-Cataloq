@@ -102,11 +102,6 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
               </div>
             )}
 
-            {/* Pricing based on current market gold rate (Live spot gold rate) */}
-            <div className="mt-1 text-[11px] text-[#F2D6D6]/60 tracking-wider">
-              Priced by current market gold rate and craftsmanship
-            </div>
-
             {/* 2. SHORT DESC */}
             {product.shortDesc && (
               <p className="text-xs text-[#E8CFCF]/90 leading-relaxed mt-2.5">
@@ -168,7 +163,11 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
           </div>
 
           {/* 5. BAWAH SEKALI BUTANG TEMPAHAN */}
-          <div className="mt-6 pt-4 border-t border-white/10 space-y-2.5">
+          <div className="mt-5">
+            <div className="text-[11px] text-[#F2D6D6]/60 tracking-wider mb-3">
+              Priced by current market gold rate and craftsmanship
+            </div>
+            <div className="pt-4 border-t border-white/10 space-y-2.5">
             <a
               href={waLink(
                 `Hello RM Atelier, I would like to inquire about ${product.fullName} (Ref: ${product.id.toUpperCase()}).`
@@ -184,6 +183,7 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
             <div className="flex items-center justify-center gap-2 text-[11px] text-[#E8CFCF]/60">
               <Shield className="w-3.5 h-3.5 text-[#F2D6D6]/70" />
               <span>Special orders &amp; inquiries welcome</span>
+            </div>
             </div>
           </div>
         </div>
