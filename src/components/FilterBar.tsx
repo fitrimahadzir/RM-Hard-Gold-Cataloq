@@ -22,7 +22,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
   sortBy,
   onSortChange,
   totalCount,
-  availableSizes = ['16 (16.5 mm)', '17 (17.3 mm)', '18 (18.1 mm)', '19 (18.9 mm)'],
+  availableSizes = [],
   sizeLabel = 'Size',
   availableMetals = [],
   availableGenders = [],

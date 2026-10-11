@@ -8,7 +8,7 @@ import { Footer } from './components/Footer';
 import { QuickViewModal } from './components/QuickViewModal';
 import { SearchModal } from './components/SearchModal';
 import { LoginModal } from './components/LoginModal';
-import { CATEGORIES } from './data/products';
+import { CATEGORIES, CATEGORY_SIZES } from './data/products';
 import { CATEGORY_ICONS } from './icons';
 import { useProducts } from './hooks/useProducts';
 import { CategoryInfo, Product, FilterState, SortOption, CategoryId } from './types';
@@ -56,13 +56,8 @@ export default function App() {
     [categories, activeCategory]
   );
 
-  // Available unique sizes for the active category
-  const availableCategorySizes = useMemo(() => {
-    const list = products
-      .filter((p) => p.category === activeCategory)
-      .flatMap((p) => p.sizes);
-    return Array.from(new Set(list));
-  }, [products, activeCategory]);
+  // Fixed size options for the active category
+  const availableCategorySizes = CATEGORY_SIZES[activeCategory];
 
   // Available filter options (hidden when the catalog has no such data)
   const availableMetals = useMemo(
@@ -115,8 +110,8 @@ export default function App() {
       // Metal filter
       if (filters.metal !== 'all' && product.metal !== filters.metal) return false;
 
-      // Size filter (checks whether the selected size is in the product's available sizes)
-      if (filters.size !== 'all' && !product.sizes.includes(filters.size)) {
+      // Size filter (category sizing is fixed in code, from CATEGORY_SIZES)
+      if (filters.size !== 'all' && !CATEGORY_SIZES[activeCategory].includes(filters.size)) {
         return false;
       }
 

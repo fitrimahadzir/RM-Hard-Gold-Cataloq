@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { X, Shield, MessageCircle, Scale, Sparkles } from 'lucide-react';
 import { Product } from '../types';
 import { waLink } from '../config';
+import { CATEGORY_SIZES } from '../data/products';
 
 interface QuickViewModalProps {
   product: Product | null;
@@ -133,8 +134,8 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
               </div>
             )}
 
-            {/* 4. PILIHAN SAIZ (Category Specific) */}
-            {product.sizes.length > 0 && (
+            {/* 4. PILIHAN SAIZ (Category Specific, fixed in code) */}
+            {CATEGORY_SIZES[product.category].length > 0 && (
               <div className="mt-3">
                 <div className="flex items-center justify-between text-xs mb-2">
                   <span className="text-[#F2D6D6] font-medium flex items-center gap-1.5">
@@ -148,7 +149,7 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
 
                 {/* Sizes Grid/Row */}
                 <div className="flex flex-wrap gap-2">
-                  {product.sizes.map((size) => (
+                  {CATEGORY_SIZES[product.category].map((size) => (
                     <button
                       key={size}
                       onClick={() => setSelectedSize(size)}
