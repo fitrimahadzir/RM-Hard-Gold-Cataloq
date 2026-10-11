@@ -16,15 +16,17 @@ export interface Product {
   subtitle: string; // e.g. "White gold diamonds."
   shortDesc: string; // Ringkasan ringkas produk
   description: string; // Deskripsi penuh
-  metal: 'White gold' | 'Yellow gold' | 'Rose gold';
+  metal: string;
   gemstone: string;
-  gender: 'Women' | 'Unisex';
+  gender: string;
   weight: string; // Estimated weight (e.g. "3.85 g")
   weightNumeric: number; // For weight sorting (e.g. 3.85)
   sizeLabel: string; // Size label per category
   sizes: string[]; // Size options per category
   image: string;
   karat: string;
+  featured?: boolean; // Highlight on the homepage (Airtable "featured" column)
+  availability?: boolean; // Available for inquiry (Airtable "availability" column)
 }
 
 export type SortOption = 'weight-asc' | 'weight-desc' | 'name-asc' | 'featured';

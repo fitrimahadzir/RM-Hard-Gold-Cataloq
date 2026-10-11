@@ -124,9 +124,11 @@ export const ProductCard: React.FC<ProductCardProps> = ({
               : 'opacity-0 max-h-0 -translate-y-1 my-0'
           }`}
         >
-          <p className="text-[11px] md:text-[12px] text-[#E8CFCF]/75 font-serif italic tracking-wide">
-            {product.subtitle}
-          </p>
+          {product.subtitle && (
+            <p className="text-[11px] md:text-[12px] text-[#E8CFCF]/75 font-serif italic tracking-wide">
+              {product.subtitle}
+            </p>
+          )}
         </div>
 
         {/* Category (replaces weight) */}

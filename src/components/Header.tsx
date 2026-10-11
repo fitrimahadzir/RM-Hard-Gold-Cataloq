@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { X, Search, ChevronDown, MessageCircle } from 'lucide-react';
 import Hamburger from 'hamburger-react';
-import { CategoryId } from '../types';
-import { CATEGORIES } from '../data/products';
+import { CategoryId, CategoryInfo } from '../types';
 import { waLink } from '../config';
 
 interface HeaderProps {
@@ -10,6 +9,7 @@ interface HeaderProps {
   onHome: () => void;
   activeCategory: CategoryId;
   onSelectCategory: (category: CategoryId) => void;
+  categories: CategoryInfo[];
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -17,6 +17,7 @@ export const Header: React.FC<HeaderProps> = ({
   onHome,
   activeCategory,
   onSelectCategory,
+  categories,
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [catalogDropdownOpen, setCatalogDropdownOpen] = useState(false);
@@ -61,7 +62,7 @@ export const Header: React.FC<HeaderProps> = ({
 
               {catalogDropdownOpen && (
                 <div className="absolute top-full left-0 mt-1 w-48 bg-[#350A18] border border-[#F2D6D6]/30 rounded-xl shadow-2xl py-2 z-50 text-left backdrop-blur-md">
-                  {CATEGORIES.map((cat) => (
+                  {categories.map((cat) => (
                     <button
                       key={cat.id}
                       onClick={() => {
@@ -184,7 +185,7 @@ export const Header: React.FC<HeaderProps> = ({
               Categories
             </p>
             <nav className="flex flex-col gap-3 font-serif text-xl tracking-wide text-[#F2D6D6]">
-              {CATEGORIES.map((cat) => (
+              {categories.map((cat) => (
                 <button
                   key={cat.id}
                   onClick={() => {

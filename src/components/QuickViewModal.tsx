@@ -33,6 +33,8 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
 
   if (!product) return null;
 
+  const metalKarat = [product.metal, product.karat].filter(Boolean).join(' · ');
+
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-10">
       {/* Backdrop */}
@@ -44,7 +46,7 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
 
       {/* Dialog */}
       <div
-        className="relative w-full max-w-3xl bg-[#3B0E1B] border border-[#F2D6D6]/20 rounded-[24px] shadow-2xl overflow-hidden z-10 grid grid-cols-1 md:grid-cols-2 text-[#E8CFCF]"
+        className="relative w-full max-w-3xl bg-[#3B0E1B] border border-[#F2D6D6]/20 rounded-[24px] shadow-2xl overflow-hidden z-10 grid grid-cols-1 md:grid-cols-2 text-[#E8CFCF] max-h-[90vh] overflow-y-auto"
         role="dialog"
         aria-modal="true"
         aria-label={product.fullName}
@@ -59,8 +61,8 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
         </button>
 
         {/* Left: Rounded Rectangle Product Showcase */}
-        <div className="p-8 bg-[#300A15] flex flex-col items-center justify-center relative">
-          <div className="relative w-full max-w-[280px] aspect-square p-2">
+        <div className="p-5 md:p-8 bg-[#300A15] flex flex-col items-center justify-center relative">
+          <div className="relative w-full max-w-[180px] sm:max-w-[220px] md:max-w-[280px] aspect-square p-2">
             {/* Outlined frame accent */}
             <div
               className="absolute inset-2 ring-outline-shape border-[1.5px] border-[#F2D6D6]/70 translate-x-2 -translate-y-2 pointer-events-none"
@@ -85,12 +87,12 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
         </div>
 
         {/* Right: Name, Short Desc, Size Options, Weight & Booking Button */}
-        <div className="p-6 md:p-8 flex flex-col justify-between">
+        <div className="p-5 md:p-8 flex flex-col justify-between">
           <div>
             {/* Metal & Wishlist tag */}
             <div className="flex items-center justify-between">
               <span className="text-xs uppercase tracking-[0.2em] text-[#E8CFCF]/70 font-medium">
-                {product.metal} · {product.karat}
+                {metalKarat || 'RM Atelier'}
               </span>
               <button
                 onClick={() => setIsWishlisted(!isWishlisted)}
@@ -104,7 +106,7 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
             </div>
 
             {/* 1. NAMA */}
-            <h2 className="font-serif text-2xl md:text-3xl text-[#F2D6D6] tracking-wide mt-1.5 font-normal">
+            <h2 className="font-serif text-xl md:text-3xl text-[#F2D6D6] tracking-wide mt-1.5 font-normal">
               {product.fullName}
             </h2>
 
@@ -114,57 +116,63 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
             </div>
 
             {/* 2. SHORT DESC */}
-            <p className="text-xs text-[#E8CFCF]/90 leading-relaxed mt-2.5">
-              {product.shortDesc}
-            </p>
+            {product.shortDesc && (
+              <p className="text-xs text-[#E8CFCF]/90 leading-relaxed mt-2.5">
+                {product.shortDesc}
+              </p>
+            )}
 
             {/* 3. BERAT (Weight Box) */}
-            <div className="my-4 p-3 rounded-xl bg-black/25 border border-white/10 flex items-center justify-between">
-              <div className="flex items-center gap-2.5 text-xs text-[#E8CFCF]/80">
-                <Scale className="w-4 h-4 text-[#F2D6D6]" />
-                <div>
-                  <span className="block text-[11px] uppercase tracking-wider text-[#E8CFCF]/60">
-                    Estimated Gold Weight
-                  </span>
-                  <span className="font-medium text-[#F2D6D6]">
-                    {product.weight} (±0.05g)
-                  </span>
+            {product.weight && (
+              <div className="my-4 p-3 rounded-xl bg-black/25 border border-white/10 flex items-center justify-between">
+                <div className="flex items-center gap-2.5 text-xs text-[#E8CFCF]/80">
+                  <Scale className="w-4 h-4 text-[#F2D6D6]" />
+                  <div>
+                    <span className="block text-[11px] uppercase tracking-wider text-[#E8CFCF]/60">
+                      Estimated Gold Weight
+                    </span>
+                    <span className="font-medium text-[#F2D6D6]">
+                      {product.weight} (±0.05g)
+                    </span>
+                  </div>
+                </div>
+                <div className="text-right text-[11px] text-[#E8CFCF]/60">
+                  <span>916 Gold (22K)</span>
                 </div>
               </div>
-              <div className="text-right text-[11px] text-[#E8CFCF]/60">
-                <span>916 Gold (22K)</span>
-              </div>
-            </div>
+            )}
 
             {/* 4. PILIHAN SAIZ (Category Specific) */}
-            <div className="mt-3">
-              <div className="flex items-center justify-between text-xs mb-2">
-                <span className="text-[#F2D6D6] font-medium flex items-center gap-1.5">
-                  <Sparkles className="w-3 h-3 opacity-70" />
-                  <span>{product.sizeLabel}</span>
-                </span>
-                <span className="text-[11px] text-[#E8CFCF]/60">
-                  Select sample size
-                </span>
-              </div>
+            {product.sizes.length > 0 && (
+              <div className="mt-3">
+                <div className="flex items-center justify-between text-xs mb-2">
+                  <span className="text-[#F2D6D6] font-medium flex items-center gap-1.5">
+                    <Sparkles className="w-3 h-3 opacity-70" />
+                    <span>{product.sizeLabel}</span>
+                  </span>
+                  <span className="text-[11px] text-[#E8CFCF]/60">
+                    Select sample size
+                  </span>
+                </div>
 
-              {/* Sizes Grid/Row */}
-              <div className="flex flex-wrap gap-2">
-                {product.sizes.map((size) => (
-                  <button
-                    key={size}
-                    onClick={() => setSelectedSize(size)}
-                    className={`px-3 py-1.5 rounded-[6px] text-xs transition-all cursor-pointer ${
-                      selectedSize === size
-                        ? 'bg-[#F2D6D6] text-[#2A0A14] font-semibold shadow-md'
-                        : 'border border-white/15 hover:border-white/40 text-[#E8CFCF] hover:bg-white/5'
-                    }`}
-                  >
-                    {size}
-                  </button>
-                ))}
+                {/* Sizes Grid/Row */}
+                <div className="flex flex-wrap gap-2">
+                  {product.sizes.map((size) => (
+                    <button
+                      key={size}
+                      onClick={() => setSelectedSize(size)}
+                      className={`px-3 py-1.5 rounded-[6px] text-xs transition-all cursor-pointer ${
+                        selectedSize === size
+                          ? 'bg-[#F2D6D6] text-[#2A0A14] font-semibold shadow-md'
+                          : 'border border-white/15 hover:border-white/40 text-[#E8CFCF] hover:bg-white/5'
+                      }`}
+                    >
+                      {size}
+                    </button>
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
           </div>
 
           {/* 5. BAWAH SEKALI BUTANG TEMPAHAN */}

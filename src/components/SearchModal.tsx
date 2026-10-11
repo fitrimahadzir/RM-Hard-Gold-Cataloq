@@ -119,7 +119,9 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                       <h4 className="font-serif text-sm md:text-base text-[#F2D6D6] group-hover:text-white">
                         {item.fullName}
                       </h4>
-                      <p className="text-[11px] text-[#E8CFCF]/70">{item.subtitle}</p>
+                      {item.subtitle && (
+                        <p className="text-[11px] text-[#E8CFCF]/70">{item.subtitle}</p>
+                      )}
                     </div>
                   </div>
 
