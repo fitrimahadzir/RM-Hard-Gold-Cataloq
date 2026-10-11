@@ -80,7 +80,7 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
         <div className="p-5 md:p-8 flex flex-col justify-between">
           <div>
             {/* Metal tag */}
-            <span className="text-xs uppercase tracking-[0.2em] text-[#E8CFCF]/70 font-medium">
+            <span className="text-xs uppercase tracking-[0.2em] text-[#E8CFCF]/70 font-normal">
               Hard Gold Catalog
             </span>
 
@@ -120,7 +120,7 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
                   <Scale className="w-4 h-4 text-[#F2D6D6]" />
                   <div>
                     <span className="block text-[11px] uppercase tracking-wider text-[#E8CFCF]/60">
-                      Estimated Gold Weight
+                      Estimated Weight
                     </span>
                     <span className="font-medium text-[#F2D6D6]">
                       {product.weight} (±0.05g)
