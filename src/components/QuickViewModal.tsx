@@ -62,26 +62,19 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
 
         {/* Left: Rounded Rectangle Product Showcase */}
         <div className="p-5 md:p-8 bg-[#300A15] flex flex-col items-center justify-center relative">
-          <div className="relative w-full max-w-[180px] sm:max-w-[220px] md:max-w-[280px] aspect-square p-2">
-            {/* Outlined frame accent */}
-            <div
-              className="absolute inset-2 ring-outline-shape border-[1.5px] border-[#F2D6D6]/70 translate-x-2 -translate-y-2 pointer-events-none"
-              aria-hidden="true"
-            />
+          <div className="relative w-full max-w-[180px] sm:max-w-[220px] md:max-w-[280px] aspect-square">
             {/* Rounded Rectangle Container */}
-            <div className="w-full h-full ring-card-shape bg-[#7A4A55] p-6 flex items-center justify-center overflow-hidden shadow-xl">
+            <div className="w-full h-full ring-card-shape bg-[#7A4A55] overflow-hidden shadow-xl">
               <img
                 src={product.image}
                 alt={product.fullName}
                 referrerPolicy="no-referrer"
-                className="w-full h-full object-contain filter drop-shadow-[0_16px_28px_rgba(0,0,0,0.5)] hover:scale-105 transition-transform duration-500"
+                className="w-full h-full object-cover"
               />
             </div>
           </div>
 
-          <div className="flex items-center gap-2 mt-4 text-[11px] uppercase tracking-[0.25em] text-[#F2D6D6]/60">
-            <span>RM Atelier</span>
-            <span>·</span>
+          <div className="flex items-center justify-center mt-4 text-[11px] uppercase tracking-[0.25em] text-[#F2D6D6]/60">
             <span>Ref: {product.id.toUpperCase()}</span>
           </div>
         </div>
@@ -92,7 +85,7 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
             {/* Metal & Wishlist tag */}
             <div className="flex items-center justify-between">
               <span className="text-xs uppercase tracking-[0.2em] text-[#E8CFCF]/70 font-medium">
-                {metalKarat || 'RM Atelier'}
+                {metalKarat || 'Hard Gold Catalog'}
               </span>
               <button
                 onClick={() => setIsWishlisted(!isWishlisted)}

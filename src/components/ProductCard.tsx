@@ -45,30 +45,12 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         Image Container Wrapper:
         Contains the offset outline on hover, and the rounded rectangle dusty-rose box
       */}
-      <div className="relative w-full aspect-square flex items-center justify-center p-2">
+      <div className="relative w-full aspect-square">
         {/*
-          HOVER STATE OFFSET OUTLINED FRAME:
-          1.5px blush-pink border, rounded rectangle shape.
-          Appears slightly shifted up-right behind/over the image (translate-x-2 -translate-y-2).
-          Smooth 300ms transition.
-        */}
-        <div
-          className={`absolute inset-2 pointer-events-none ring-outline-shape border-[1.5px] border-[#F2D6D6]/85 transition-all duration-300 ease-out z-10 ${
-            isHovered
-              ? 'opacity-100 translate-x-2 -translate-y-2'
-              : 'opacity-0 translate-x-0 translate-y-0 scale-[0.99]'
-          }`}
-          aria-hidden="true"
-        />
-
-        {/* 
           Main Shaped Image Container:
-          Muted dusty-rose background (#7A4A55)
-          Rounded rectangle shape (border-radius: 24px)
+          Static rounded 1:1 box with the image filling it entirely.
         */}
-        <div
-          className="relative w-full h-full ring-card-shape bg-[#7A4A55] overflow-hidden flex items-center justify-center transition-transform duration-300 ease-out shadow-[0_10px_30px_rgba(0,0,0,0.35)]"
-        >
+        <div className="relative w-full h-full ring-card-shape bg-[#7A4A55] overflow-hidden flex items-center justify-center shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
           {/* Subtle inner ambient glow */}
           <div className="absolute inset-0 bg-radial from-white/10 to-transparent pointer-events-none" />
 
@@ -79,7 +61,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
               alt={product.fullName}
               referrerPolicy="no-referrer"
               onError={() => setImageError(true)}
-              className="relative z-0 w-full h-full object-contain p-1.5 md:p-4 drop-shadow-[0_14px_22px_rgba(0,0,0,0.45)] transition-transform duration-500 ease-out group-hover:scale-105"
+              className="relative z-0 w-full h-full object-cover"
             />
           ) : (
             /* Styled CSS/SVG Fallback Container */
