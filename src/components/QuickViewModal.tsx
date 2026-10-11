@@ -103,10 +103,15 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
               {product.name}
             </h2>
 
-            {/* Purity */}
+            {/* Purity badge */}
             {!!product.purity && (
-              <div className="mt-1.5 text-[11px] uppercase tracking-[0.2em] text-[#E8CFCF]/70">
-                Purity: {product.purity}
+              <div className="mt-2 inline-flex items-center gap-2 px-3 py-1.5 rounded-[8px] border border-[#F2D6D6]/25 bg-[#7A4A55]/30">
+                <span className="text-[10px] uppercase tracking-[0.2em] text-[#E8CFCF]/70">
+                  Purity
+                </span>
+                <span className="text-[11px] uppercase tracking-[0.2em] text-[#F2D6D6] font-semibold">
+                  {product.purity}
+                </span>
               </div>
             )}
 
