@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { X, Shield, MessageCircle, Heart, Scale, Sparkles } from 'lucide-react';
+import { X, Shield, MessageCircle, Scale, Sparkles } from 'lucide-react';
 import { Product } from '../types';
 import { waLink } from '../config';
 
@@ -13,7 +13,6 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
   onClose,
 }) => {
   const [selectedSize, setSelectedSize] = useState<string>('');
-  const [isWishlisted, setIsWishlisted] = useState(false);
 
   // Initialize selected size whenever product changes
   useEffect(() => {
@@ -32,8 +31,6 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
   }, [onClose]);
 
   if (!product) return null;
-
-  const metalKarat = [product.metal, product.karat].filter(Boolean).join(' · ');
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-10">
@@ -82,24 +79,13 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
         {/* Right: Name, Short Desc, Size Options, Weight & Booking Button */}
         <div className="p-5 md:p-8 flex flex-col justify-between">
           <div>
-            {/* Metal & Wishlist tag */}
-            <div className="flex items-center justify-between">
-              <span className="text-xs uppercase tracking-[0.2em] text-[#E8CFCF]/70 font-medium">
-                {metalKarat || 'Hard Gold Catalog'}
-              </span>
-              <button
-                onClick={() => setIsWishlisted(!isWishlisted)}
-                className={`p-1.5 transition-colors ${
-                  isWishlisted ? 'text-red-400' : 'text-[#E8CFCF]/50 hover:text-[#FFF5F5]'
-                }`}
-                aria-label="Add to client selection"
-              >
-                <Heart className={`w-4 h-4 ${isWishlisted ? 'fill-current' : ''}`} />
-              </button>
-            </div>
+            {/* Metal tag */}
+            <span className="text-xs uppercase tracking-[0.2em] text-[#E8CFCF]/70 font-medium">
+              Hard Gold Catalog
+            </span>
 
             {/* 1. NAMA */}
-            <h2 className="font-serif text-xl md:text-3xl text-[#F2D6D6] tracking-wide mt-1.5 font-normal">
+            <h2 className="font-serif text-xl md:text-3xl text-[#F2D6D6] tracking-wide mt-1.5 font-bold">
               {product.name}
             </h2>
 
