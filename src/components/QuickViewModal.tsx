@@ -85,7 +85,7 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
             {/* Metal & Wishlist tag */}
             <div className="flex items-center justify-between">
               <span className="text-xs uppercase tracking-[0.2em] text-[#E8CFCF]/70 font-medium">
-                {metalKarat || 'Hard Gold Catalog'}
+                {metalKarat || 'Hard Gold Catalog (916)'}
               </span>
               <button
                 onClick={() => setIsWishlisted(!isWishlisted)}
@@ -184,7 +184,7 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
 
             <div className="flex items-center justify-center gap-2 text-[11px] text-[#E8CFCF]/60">
               <Shield className="w-3.5 h-3.5 text-[#F2D6D6]/70" />
-              <span>Reservations for private viewing and special orders</span>
+              <span>Special orders &amp; inquiries welcome</span>
             </div>
           </div>
         </div>
