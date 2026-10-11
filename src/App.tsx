@@ -8,22 +8,16 @@ import { Footer } from './components/Footer';
 import { QuickViewModal } from './components/QuickViewModal';
 import { SearchModal } from './components/SearchModal';
 import { LoginModal } from './components/LoginModal';
-import { AddProductPage } from './components/AddProductPage';
 import { CATEGORIES } from './data/products';
 import { CATEGORY_ICONS } from './icons';
 import { useProducts } from './hooks/useProducts';
 import { CategoryInfo, Product, FilterState, SortOption, CategoryId } from './types';
 
-type AppView = 'home' | 'catalog' | 'add';
+type AppView = 'home' | 'catalog';
 
 export default function App() {
-  // Home view vs Catalog (category) view vs Add product form
-  const [view, setView] = useState<AppView>(() => {
-    if (typeof window !== 'undefined' && new URLSearchParams(window.location.search).get('add')) {
-      return 'add';
-    }
-    return 'home';
-  });
+  // Home view vs Catalog (category) view
+  const [view, setView] = useState<AppView>('home');
 
   // Catalog data (loaded from Airtable via /api/products, static fallback in dev)
   const { products, isLoading, error } = useProducts();
@@ -103,12 +97,6 @@ export default function App() {
   // Back to homepage
   const handleHome = () => {
     setView('home');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  // Open the "Add product" Airtable form page
-  const handleAddProduct = () => {
-    setView('add');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -215,9 +203,6 @@ export default function App() {
             onSelectCategory={handleCategoryChange}
             onQuickView={(p) => setSelectedQuickView(p)}
           />
-        ) : view === 'add' ? (
-          /* ================= ADD PRODUCT (Airtable form) ================= */
-          <AddProductPage onBack={() => setView('home')} />
         ) : (
           <>
             {/* DYNAMIC PAGE TITLE */}
@@ -298,7 +283,7 @@ export default function App() {
         )}
 
         {/* FOOTER */}
-        <Footer onAddProduct={handleAddProduct} />
+        <Footer />
       </main>
 
       {/* High-Resolution Preview & Specs Modal */}
