@@ -70,7 +70,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 transition-transform group-hover:translate-x-1" />
             </button>
             <a
-              href={waLink('Hello RM Atelier, I would like to inquire about your jewelry collection.')}
+href={waLink('Hello, I would like to inquire about your jewelry collection.')}
               target="_blank"
               rel="noreferrer"
               className="flex items-center gap-2 border border-[#F2D6D6]/40 hover:border-[#F2D6D6]/80 text-[#F2D6D6] text-[10px] sm:text-[11px] uppercase tracking-[0.2em] px-3.5 py-2 sm:px-5 sm:py-2.5 rounded-[6px] transition-colors cursor-pointer"

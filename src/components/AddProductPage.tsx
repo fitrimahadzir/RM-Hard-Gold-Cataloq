@@ -138,7 +138,7 @@ export const AddProductPage: React.FC = () => {
               Add New Product
             </h1>
             <p className="text-[11px] uppercase tracking-[0.25em] text-[#E8CFCF]/60 mt-1">
-              Submit a new piece to the RM Atelier catalog
+              Submit a new piece to the RM Hard Gold catalog
             </p>
           </div>
 

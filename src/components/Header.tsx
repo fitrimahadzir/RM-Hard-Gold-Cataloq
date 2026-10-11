@@ -118,7 +118,7 @@ export const Header: React.FC<HeaderProps> = ({
           </button>
 
           <a
-            href={waLink('Hello RM Atelier, I would like to inquire about your jewelry collection.')}
+href={waLink('Hello, I would like to inquire about your jewelry collection.')}
             target="_blank"
             rel="noreferrer"
             className="hover:text-[#FFF5F5] transition-colors cursor-pointer flex items-center gap-1.5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#F2D6D6] px-2.5 py-1 rounded-[4px] border border-[#F2D6D6]/30 hover:border-[#F2D6D6]/60 bg-white/5"
