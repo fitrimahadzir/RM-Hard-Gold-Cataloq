@@ -107,7 +107,7 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
 
             {/* 1. NAMA */}
             <h2 className="font-serif text-xl md:text-3xl text-[#F2D6D6] tracking-wide mt-1.5 font-normal">
-              {product.fullName}
+              {product.name}
             </h2>
 
             {/* Pricing based on current market gold rate (Live spot gold rate) */}
