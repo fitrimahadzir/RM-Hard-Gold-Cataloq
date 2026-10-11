@@ -170,7 +170,7 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
             <div className="pt-4 border-t border-white/10 space-y-2.5">
             <a
               href={waLink(
-                `Hello RM Atelier, I would like to inquire about ${product.fullName} (Ref: ${product.id.toUpperCase()}).`
+                `Hello, I would like to inquire about ${product.fullName} (Ref: ${product.id.toUpperCase()}).`
               )}
               target="_blank"
               rel="noreferrer"
