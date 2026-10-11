@@ -82,7 +82,7 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
           <div>
             {/* Metal tag */}
             <span className="text-xs uppercase tracking-[0.2em] text-[#E8CFCF]/70 font-normal">
-              Hard Gold Catalog
+              {product.category === 'pendant-bead' ? 'Pendant / Bead' : product.category === 'ring' ? 'Rings' : product.category === 'bracelet' ? 'Bracelets' : product.category === 'necklace' ? 'Necklaces' : product.category === 'earring' ? 'Earrings' : 'Hard Gold Catalog'}
             </span>
 
             {/* 1. NAMA */}
