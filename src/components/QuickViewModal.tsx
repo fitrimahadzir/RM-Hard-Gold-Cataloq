@@ -123,7 +123,7 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
                       Estimated Weight
                     </span>
                     <span className="font-medium text-[#F2D6D6]">
-                      {product.weight} (±0.05g)
+                      {product.weight}
                     </span>
                   </div>
                 </div>
