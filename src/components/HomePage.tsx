@@ -55,7 +55,7 @@ export const HomePage: React.FC<HomePageProps> = ({
           <h1 className="font-serif text-[24px] sm:text-3xl md:text-5xl lg:text-[56px] leading-tight font-thin text-[#F2D6D6]">
             Welcome to Our
             <br />
-            Exclusive Cataloq
+            Exclusive Catalog
           </h1>
           <p className="text-[9px] sm:text-[11px] md:text-sm text-[#E8CFCF]/80 leading-relaxed max-w-md">
             {totalPieces} pieces across 5 categories — rings, pendants, bracelets, necklaces and
