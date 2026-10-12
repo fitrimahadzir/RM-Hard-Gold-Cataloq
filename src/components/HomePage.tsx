@@ -58,7 +58,7 @@ export const HomePage: React.FC<HomePageProps> = ({
             Exclusive Catalog
           </h1>
           <p className="text-[9px] sm:text-[11px] md:text-sm text-[#E8CFCF]/80 leading-relaxed max-w-md">
-            {totalPieces} pieces across 5 categories — rings, pendants, bracelets, necklaces and
+            {totalPieces} pieces across 6 categories — rings, pendants, bracelets, necklaces and
             earrings. Full specifications, weights and sizes with no fixed pricing.
           </p>
           <div className="flex flex-wrap items-center gap-2 sm:gap-3 pt-1">
