@@ -95,10 +95,11 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  // Featured pieces for the homepage hero grid (Airtable "featured" flag, else first pieces)
+  // Featured pieces for the homepage hero grid (Airtable "featured" flag, else first pieces).
+  // Kept up to 24; HomePage shows all 24 on desktop and only 9 on small screens.
   const featuredProducts = useMemo(() => {
     const featured = products.filter((p) => p.featured);
-    return (featured.length > 0 ? featured : products).slice(0, 9);
+    return (featured.length > 0 ? featured : products).slice(0, 24);
   }, [products]);
 
   // Filtered & Sorted products for current category

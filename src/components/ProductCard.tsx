@@ -7,12 +7,14 @@ interface ProductCardProps {
   product: Product;
   onQuickView: (product: Product) => void;
   isPriorityHovered?: boolean;
+  className?: string;
 }
 
 export const ProductCard: React.FC<ProductCardProps> = ({
   product,
   onQuickView,
   isPriorityHovered = false,
+  className = '',
 }) => {
   const [isHovered, setIsHovered] = useState(isPriorityHovered);
   const [imageError, setImageError] = useState(false);
@@ -27,7 +29,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
 
   return (
     <div
-      className="group relative flex flex-col items-center cursor-pointer select-none"
+      className={`group relative flex flex-col items-center cursor-pointer select-none ${className}`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onClick={() => onQuickView(product)}

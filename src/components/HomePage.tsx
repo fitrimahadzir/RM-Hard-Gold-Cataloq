@@ -112,11 +112,12 @@ href={waLink('Hello, I would like to inquire about your jewelry collection.')}
         </div>
 
         <div className="grid grid-cols-3 lg:grid-cols-6 gap-4 md:gap-5 lg:gap-6 pt-8">
-          {featured.map((product) => (
+          {featured.map((product, index) => (
             <ProductCard
               key={product.id}
               product={product}
               onQuickView={onQuickView}
+              className={index >= 9 ? 'max-lg:hidden' : ''}
             />
           ))}
         </div>
