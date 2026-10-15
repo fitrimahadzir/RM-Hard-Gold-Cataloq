@@ -43,7 +43,7 @@ export const Header: React.FC<HeaderProps> = ({
               onClick={onHome}
               className="hover:text-[#FFF5F5] transition-colors hover:underline underline-offset-4 decoration-[#F2D6D6]/40 cursor-pointer py-1"
             >
-              Home
+              HOME
             </button>
 
             {/* Catalog with Dropdown */}
@@ -56,7 +56,7 @@ export const Header: React.FC<HeaderProps> = ({
                 onClick={() => setCatalogDropdownOpen(!catalogDropdownOpen)}
                 className="hover:text-[#FFF5F5] transition-colors flex items-center gap-1 cursor-pointer py-1"
               >
-                <span>Catalog</span>
+                <span>CATALOG</span>
                 <ChevronDown className="w-2.5 h-2.5 opacity-70" />
               </button>
 
@@ -168,7 +168,7 @@ href={waLink('Hello, I would like to inquire about your jewelry collection.')}
             </button>
           </div>
 
-          <nav className="pt-6 flex flex-col gap-3 font-serif text-xl tracking-wide text-[#F2D6D6]">
+          <nav className="pt-6 flex flex-col gap-3 font-serif text-xl tracking-wide uppercase text-[#F2D6D6]">
             <button
               onClick={() => {
                 setMobileMenuOpen(false);
@@ -176,7 +176,7 @@ href={waLink('Hello, I would like to inquire about your jewelry collection.')}
               }}
               className="text-left transition-colors hover:text-white"
             >
-              Home
+              HOME
             </button>
           </nav>
 
@@ -184,7 +184,7 @@ href={waLink('Hello, I would like to inquire about your jewelry collection.')}
             <p className="text-xs uppercase tracking-[0.25em] text-[#F2D6D6]/60 mb-3">
               Categories
             </p>
-            <nav className="flex flex-col gap-3 font-serif text-xl tracking-wide text-[#F2D6D6]">
+            <nav className="flex flex-col gap-3 font-serif text-xl tracking-wide uppercase text-[#F2D6D6]">
               {categories.map((cat) => (
                 <button
                   key={cat.id}
