@@ -15,7 +15,8 @@ import necklaceSovereignImg from '../assets/images/necklace_sovereign_1791340445
 import earringStarlightImg from '../assets/images/earring_starlight_1791340456272.jpg';
 
 export const CATEGORIES: CategoryInfo[] = [
-  { id: 'pendant-bead', label: 'Pendants & Beads', singular: 'Pendant', pieceCount: 47, sizeLabel: 'Pendant / Bead Size' },
+  { id: 'pendant', label: 'Pendants', singular: 'Pendant', pieceCount: 36, sizeLabel: 'Pendant Size' },
+  { id: 'bead', label: 'Beads', singular: 'Bead', pieceCount: 11, sizeLabel: 'Bead Diameter' },
   { id: 'ring', label: 'Rings', singular: 'Ring', pieceCount: 83, sizeLabel: 'Ring Size (Diameter)' },
   { id: 'bracelet', label: 'Bracelets', singular: 'Bracelet', pieceCount: 36, sizeLabel: 'Wrist Circumference' },
   { id: 'necklace', label: 'Necklaces', singular: 'Necklace', pieceCount: 52, sizeLabel: 'Necklace Length' },
@@ -24,7 +25,8 @@ export const CATEGORIES: CategoryInfo[] = [
 
 // Fixed size options per category (size varies by category, not by Airtable record)
 export const CATEGORY_SIZES: Record<CategoryId, string[]> = {
-  'pendant-bead': ['Mini (10 mm)', 'Petite (12 mm)', 'Standard (14 mm)', 'Standard (16 mm)', 'Grand (20 mm)', 'Grand (22 mm)', 'Custom Size'],
+  pendant: ['Mini (10 mm)', 'Petite (12 mm)', 'Standard (14 mm)', 'Standard (16 mm)', 'Grand (20 mm)', 'Grand (22 mm)', 'Custom Size'],
+  bead: ['Mini (10 mm)', 'Petite (12 mm)', 'Standard (14 mm)', 'Standard (16 mm)', 'Maxi (18 mm)', 'Custom Size'],
   ring: ['9', '10', '11', '12', '13', '14', '15', '16', '17', '18', 'Custom Size'],
   bracelet: ['15.5 cm (XS)', '16.0 cm (S)', '16.5 cm (S)', '17.0 cm (S/M)', '17.5 cm (M)', '18.0 cm (M)', '18.5 cm (L)', '19.0 cm (L)', '19.5 cm (L)', 'Custom Size'],
   necklace: ['40 cm (Choker)', '42 cm (Classic)', '45 cm (Princess)', '50 cm (Matinee)', '55 cm (Opera)', 'Custom Size'],
@@ -181,7 +183,7 @@ export const PRODUCTS: Product[] = [
   // --- 2. PENDANTS & BEADS ---
   {
     id: 'pendant-soleil',
-    category: 'pendant-bead',
+    category: 'pendant',
     name: 'Soleil',
     fullName: 'Pendant «Soleil»',
     subtitle: 'Yellow gold sapphire teardrop.',
@@ -199,7 +201,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: 'bead-cosmos',
-    category: 'pendant-bead',
+    category: 'bead',
     name: 'Cosmos',
     fullName: 'Bead «Cosmos»',
     subtitle: 'Rose gold diamond filigree bead.',
@@ -217,7 +219,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: 'pendant-goutte',
-    category: 'pendant-bead',
+    category: 'pendant',
     name: 'Goutte',
     fullName: 'Pendant «Goutte»',
     subtitle: 'White gold pear solitaire.',
@@ -235,7 +237,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: 'pendant-aura',
-    category: 'pendant-bead',
+    category: 'pendant',
     name: 'Aura',
     fullName: 'Pendant «Aura»',
     subtitle: 'Rose gold oval tourmaline.',

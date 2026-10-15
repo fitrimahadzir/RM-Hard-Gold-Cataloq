@@ -22,8 +22,8 @@ export default function App() {
   // Catalog data (loaded from Airtable via /api/products, static fallback in dev)
   const { products, isLoading, error } = useProducts();
 
-  // Category state (1. Pendant & Bead, 2. Ring, 3. Bracelet, 4. Necklace, 5. Earring)
-  const [activeCategory, setActiveCategory] = useState<CategoryId>('pendant-bead');
+  // Category state (1. Pendant, 2. Bead, 3. Ring, 4. Bracelet, 5. Necklace, 6. Earring)
+  const [activeCategory, setActiveCategory] = useState<CategoryId>('pendant');
 
   // Modals & Selected pieces
   const [selectedQuickView, setSelectedQuickView] = useState<Product | null>(null);

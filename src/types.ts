@@ -1,4 +1,4 @@
-export type CategoryId = 'ring' | 'pendant-bead' | 'bracelet' | 'necklace' | 'earring';
+export type CategoryId = 'ring' | 'pendant' | 'bead' | 'bracelet' | 'necklace' | 'earring';
 
 export interface CategoryInfo {
   id: CategoryId;

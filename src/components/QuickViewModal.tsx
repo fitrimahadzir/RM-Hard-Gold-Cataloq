@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { X, Shield, MessageCircle, Scale, Sparkles } from 'lucide-react';
 import { Product } from '../types';
 import { waLink } from '../config';
-import { CATEGORY_SIZES } from '../data/products';
+import { CATEGORIES, CATEGORY_SIZES } from '../data/products';
 
 interface QuickViewModalProps {
   product: Product | null;
@@ -82,7 +82,7 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
           <div>
             {/* Metal tag */}
             <span className="text-xs uppercase tracking-[0.2em] text-[#E8CFCF]/70 font-normal">
-              {product.category === 'pendant-bead' ? 'Pendant / Bead' : product.category === 'ring' ? 'Rings' : product.category === 'bracelet' ? 'Bracelets' : product.category === 'necklace' ? 'Necklaces' : product.category === 'earring' ? 'Earrings' : 'Hard Gold Catalog'}
+              {CATEGORIES.find((c) => c.id === product.category)?.label ?? 'Hard Gold Catalog'}
             </span>
 
             {/* 1. NAMA */}

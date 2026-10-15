@@ -17,7 +17,8 @@ export interface AirtableRecord {
 }
 
 const CATEGORY_SINGULARS: Record<CategoryId, string> = {
-  'pendant-bead': 'Pendant/Bead',
+  pendant: 'Pendant',
+  bead: 'Bead',
   ring: 'Ring',
   bracelet: 'Bracelet',
   necklace: 'Necklace',
@@ -25,7 +26,8 @@ const CATEGORY_SINGULARS: Record<CategoryId, string> = {
 };
 
 const CATEGORY_SIZE_LABELS: Record<CategoryId, string> = {
-  'pendant-bead': 'Pendant / Bead Size',
+  pendant: 'Pendant Size',
+  bead: 'Bead Diameter',
   ring: 'Ring Size (Diameter)',
   bracelet: 'Wrist Circumference',
   necklace: 'Necklace Length',
@@ -49,11 +51,12 @@ function getField(fields: Record<string, unknown>, key: string): unknown {
 export function normalizeCategory(value: unknown): CategoryId | null {
   const v = String(value ?? '').toLowerCase().trim();
   if (!v) return null;
+  if (v.includes('earring') || v.includes('ear ')) return 'earring';
   if (v.includes('ring')) return 'ring';
-  if (v.includes('pendant') || v.includes('bead') || v.includes('charm')) return 'pendant-bead';
+  if (v.includes('bead') || v.includes('charm')) return 'bead';
+  if (v.includes('pendant')) return 'pendant';
   if (v.includes('bracelet') || v.includes('bangle') || v.includes('cuff') || v.includes('wrist')) return 'bracelet';
   if (v.includes('necklace') || v.includes('choker') || v.includes('chain')) return 'necklace';
-  if (v.includes('earring') || v.includes('ear ')) return 'earring';
   return null;
 }
 
