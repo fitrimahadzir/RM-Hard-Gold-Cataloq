@@ -110,11 +110,11 @@ export const Header: React.FC<HeaderProps> = ({
         <div className="hidden md:flex items-center justify-end gap-6 text-[11px] tracking-[0.2em] font-medium uppercase text-[#E8CFCF]/90">
           <button
             onClick={onOpenSearch}
-            className="hover:text-[#FFF5F5] transition-colors cursor-pointer flex items-center gap-1.5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#F2D6D6]"
+            className="text-[11px] tracking-[0.2em] font-medium uppercase hover:text-[#FFF5F5] transition-colors cursor-pointer flex items-center gap-1.5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#F2D6D6]"
             aria-label="Open search dialog"
           >
             <Search className="w-3.5 h-3.5 opacity-80" />
-            <span>Search</span>
+            <span>SEARCH</span>
           </button>
 
           <a
@@ -125,19 +125,19 @@ href={waLink('Hello, I would like to inquire about your jewelry collection.')}
             aria-label="Book private viewing or inquiry"
           >
             <MessageCircle className="w-3.5 h-3.5 opacity-80 text-[#F2D6D6]" />
-            <span className="text-[#F2D6D6]">Inquire</span>
+            <span className="text-[#F2D6D6]">INQUIRE</span>
           </a>
         </div>
       </div>
 
       {/* Mobile action bar */}
-      <div className="flex md:hidden items-center justify-between mt-4 pt-3 border-t border-white/5 text-[11px] tracking-[0.18em] uppercase text-[#E8CFCF]">
+      <div className="flex md:hidden items-center justify-between mt-4 pt-3 border-t border-white/5 text-[11px] tracking-[0.2em] font-medium uppercase text-[#E8CFCF]">
         <button
           onClick={onOpenSearch}
-          className="flex items-center gap-1 hover:text-white py-1"
+          className="text-[11px] tracking-[0.2em] font-medium uppercase flex items-center gap-1 hover:text-white py-1"
         >
           <Search className="w-3.5 h-3.5" />
-          <span>Search</span>
+          <span>SEARCH</span>
         </button>
         <a
           href={waLink('Hello, I would like to inquire about your jewelry collection.')}
@@ -146,7 +146,7 @@ href={waLink('Hello, I would like to inquire about your jewelry collection.')}
           className="flex items-center gap-1 text-[#F2D6D6] py-1 font-semibold"
         >
           <MessageCircle className="w-3.5 h-3.5" />
-          <span>Inquire</span>
+          <span>INQUIRE</span>
         </a>
       </div>
 
