@@ -119,12 +119,20 @@ function toText(value: unknown): string {
   return String(value).trim();
 }
 
+// Airtable stores item names in ALL CAPS; render them in title case
+// (uppercase hanya pada huruf pertama setiap perkataan).
+function formatName(value: string): string {
+  return value
+    .toLowerCase()
+    .replace(/(^|[^\p{L}\p{N}])(\p{L})/gu, (_match, prefix: string, char: string) => prefix + char.toUpperCase());
+}
+
 export function mapRecord(record: AirtableRecord): Product | null {
   const fields = record.fields ?? {};
   const category = normalizeCategory(getField(fields, 'category'));
   if (!category) return null;
 
-  const name = toText(getField(fields, 'name')) || 'Untitled';
+  const name = formatName(toText(getField(fields, 'name'))) || 'Untitled';
   const id = toText(getField(fields, 'id')) || record.id;
   const { weight, weightNumeric } = parseWeight(getField(fields, 'estimated-weight') ?? getField(fields, 'weight'));
   const description = toText(getField(fields, 'description') ?? getField(fields, 'shortdesc'));
