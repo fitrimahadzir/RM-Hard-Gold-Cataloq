@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Search, X, ArrowRight } from 'lucide-react';
 import { Product } from '../types';
+import { CATEGORIES } from '../data/products';
 
 interface SearchModalProps {
   isOpen: boolean;
@@ -112,25 +113,20 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                   className="flex items-center justify-between p-2.5 rounded-xl hover:bg-white/5 cursor-pointer transition-colors group"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 ring-card-shape bg-[#7A4A55] p-1 flex items-center justify-center shrink-0">
-                      <img src={item.image} alt={item.fullName} className="w-full h-full object-contain" />
+                    <div className="w-12 h-12 rounded-[10px] overflow-hidden shrink-0 border border-[#F2D6D6]/15">
+                      <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
                     </div>
                     <div>
                       <h4 className="font-serif text-sm md:text-base text-[#F2D6D6] group-hover:text-white">
-                        {item.fullName}
+                        {item.name}
                       </h4>
-                      {item.subtitle && (
-                        <p className="text-[11px] text-[#E8CFCF]/70">{item.subtitle}</p>
-                      )}
+                      <p className="text-[11px] uppercase tracking-[0.2em] text-[#E8CFCF]/60 mt-0.5">
+                        {CATEGORIES.find((c) => c.id === item.category)?.singular}
+                      </p>
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-3">
-                    <span className="text-xs text-[#F2D6D6] font-medium tabular-nums">
-                      {item.weight}
-                    </span>
-                    <ArrowRight className="w-4 h-4 text-[#F2D6D6]/50 group-hover:text-white transition-colors" />
-                  </div>
+                  <ArrowRight className="w-4 h-4 shrink-0 text-[#F2D6D6]/50 group-hover:text-white transition-colors" />
                 </div>
               ))}
             </div>
