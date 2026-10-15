@@ -104,13 +104,17 @@ function parseBoolean(value: unknown): boolean {
   return ['true', 'yes', 'y', '1', 'featured'].includes(String(value).trim().toLowerCase());
 }
 
-function parseAvailability(value: unknown): boolean {
-  if (value === null || value === undefined) return true;
+// Airtable omits unchecked checkbox fields entirely, so a missing value means
+// the item is unavailable (hidden). `fallback` is used only when the
+// availability field is not configured in the base at all.
+function parseAvailability(value: unknown, fallback = true): boolean {
+  if (value === null || value === undefined) return fallback;
   if (typeof value === 'boolean') return value;
   const v = String(value).trim().toLowerCase();
+  if (!v) return fallback;
   if (UNAVAILABLE_VALUES.includes(v)) return false;
   if (AVAILABLE_VALUES.includes(v)) return true;
-  return true;
+  return fallback;
 }
 
 function toText(value: unknown): string {
@@ -127,7 +131,7 @@ function formatName(value: string): string {
     .replace(/(^|[^\p{L}\p{N}])(\p{L})/gu, (_match, prefix: string, char: string) => prefix + char.toUpperCase());
 }
 
-export function mapRecord(record: AirtableRecord): Product | null {
+export function mapRecord(record: AirtableRecord, availabilityDefault = true): Product | null {
   const fields = record.fields ?? {};
   const category = normalizeCategory(getField(fields, 'category'));
   if (!category) return null;
@@ -156,7 +160,7 @@ export function mapRecord(record: AirtableRecord): Product | null {
     karat: toText(getField(fields, 'karat')),
     purity: toText(getField(fields, 'purity')),
     featured: parseBoolean(getField(fields, 'featured')),
-    availability: parseAvailability(getField(fields, 'availability')),
+    availability: parseAvailability(getField(fields, 'availability'), availabilityDefault),
   };
 }
 
@@ -169,7 +173,12 @@ export async function fetchCatalogProducts(): Promise<Product[]> {
   if (!Array.isArray(data.records)) {
     throw new Error(data.error || 'Malformed catalog response');
   }
+  // Only treat missing values as "unavailable" when the availability column
+  // actually exists somewhere in the base, otherwise show everything.
+  const hasAvailabilityField = data.records.some((record) =>
+    Object.keys(record.fields ?? {}).some((key) => normalizeKey(key) === 'availability')
+  );
   return data.records
-    .map(mapRecord)
+    .map((record) => mapRecord(record, !hasAvailabilityField))
     .filter((product): product is Product => product !== null && product.availability !== false);
 }

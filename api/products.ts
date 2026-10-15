@@ -77,7 +77,7 @@ export default async function handler(_req: ApiRequest, res: ApiResponse) {
       offset = data.offset;
     } while (offset);
 
-    res.setHeader('Cache-Control', 's-maxage=60, stale-while-revalidate=300');
+    res.setHeader('Cache-Control', 's-maxage=30, stale-while-revalidate=30');
     res.status(200).json({ records, count: records.length });
   } catch (error) {
     res.status(500).json({
